@@ -39,15 +39,15 @@ namespace AppRestSeam.Controllers
         public async Task<ActionResult<RegistrationAppointment>> Get(string KodPacient, string KodDoctora)
         {
 
-            if (KodPacient.Trim().Length == 0 && KodDoctora.Trim() == "0") { return NotFound(); }
+            ////if (KodPacient.Trim() == "0" && KodDoctora.Trim() == "0") { return NotFound(); }
 
 
             List<RegistrationAppointment> _content = new List<RegistrationAppointment>();
-            if (KodPacient.Trim().Length != 0 )
+            if (KodPacient.Trim() != "0" )
             { 
                 _content =  await db.RegistrationAppointments.Where(x => x.KodPacient == KodPacient).ToListAsync(); 
             }
-            if (KodDoctora.Trim().Length != 0)
+            if (KodDoctora.Trim() != "0")
             {
                 _content = await db.RegistrationAppointments.Where(x => x.KodDoctor == KodDoctora).ToListAsync();
             }
