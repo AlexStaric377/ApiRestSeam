@@ -1,0 +1,51 @@
+{"id":1,"keyComplaint":"A.000","KeyFeature":"A.000.011","name":"поліпшення стану"}
+{"id":2,"keyComplaint":"B.000","KeyFeature":"B.000.010","name":"подібні проблеми у найближчих кровних родичів"}
+{"id":3,"keyComplaint":"B.000","KeyFeature":"B.000.009","name":"сезонність"}
+{"id":4,"keyComplaint":"B.000","KeyFeature":"B.000.008","name":"тривалість проблеми"}
+{"id":5,"keyComplaint":"B.000","KeyFeature":"B.000.007","name":"температура"}
+{"id":6,"keyComplaint":"B.000","KeyFeature":"B.000.006","name":"стікання слизу з носа по задній стінці горла"}
+{"id":7,"keyComplaint":"B.000","KeyFeature":"B.000.005","name":"першіння у горлі"}
+{"id":8,"keyComplaint":"B.000","KeyFeature":"B.000.004","name":"почуття кома у горлі"}
+{"id":9,"keyComplaint":"B.000","KeyFeature":"B.000.003","name":"свербіж у горлі та у роті"}
+{"id":10,"keyComplaint":"B.000","KeyFeature":"B.000.002","name":"кашель"}
+{"id":11,"keyComplaint":"A.000","KeyFeature":"A.000.012","name":"погіршення стану"}
+{"id":12,"keyComplaint":"B.000","KeyFeature":"B.000.001","name":"біль у горлі"}
+{"id":13,"keyComplaint":"A.000","KeyFeature":"A.000.002","name":"чихання"}
+{"id":14,"keyComplaint":"A.000","KeyFeature":"A.000.003","name":"свербіння в носі"}
+{"id":15,"keyComplaint":"A.000","KeyFeature":"A.000.004","name":"виділення з носа"}
+{"id":16,"keyComplaint":"A.000","KeyFeature":"A.000.005","name":"порушення нюху"}
+{"id":17,"keyComplaint":"A.000","KeyFeature":"A.000.006","name":"температура"}
+{"id":18,"keyComplaint":"A.000","KeyFeature":"A.000.007","name":"біль у носі та/або приносових пазухах"}
+{"id":19,"keyComplaint":"A.000","KeyFeature":"A.000.008","name":"тривалість проблеми"}
+{"id":20,"keyComplaint":"A.000","KeyFeature":"A.000.009","name":"сезонність"}
+{"id":21,"keyComplaint":"A.000","KeyFeature":"A.000.0010","name":"подібні проблеми у найближчих кровних родичів"}
+{"id":22,"keyComplaint":"B.000","KeyFeature":"B.000.011","name":"погіршення після"}
+{"id":23,"keyComplaint":"A.000","KeyFeature":"A.000.001","name":"закладеність носа"}
+{"id":24,"keyComplaint":"B.000","KeyFeature":"B.000.012","name":"поліпшення після"}
+{"id":25,"keyComplaint":"C.000","KeyFeature":"C.000.001","name":"свербіж очей"}
+{"id":26,"keyComplaint":"G.000","KeyFeature":"G.000.008","name":"біль у попереку з однієї із сторін над самою талією"}
+{"id":27,"keyComplaint":"G.000","KeyFeature":"G.000.007","name":"біль тільки нижче талії"}
+{"id":28,"keyComplaint":"G.000","KeyFeature":"G.000.006","name":"біль у попереку переміщується в пах"}
+{"id":29,"keyComplaint":"G.000","KeyFeature":"G.000.005","name":"біль в основному нижче пупка"}
+{"id":30,"keyComplaint":"G.000","KeyFeature":"G.000.004","name":"біль розповсюджується від підборіддя вправий бік"}
+{"id":31,"keyComplaint":"G.000","KeyFeature":"G.000.003","name":"епізодично виникаюча пекуча біль у центрі грудей, особливо при нахилу вперед"}
+{"id":32,"keyComplaint":"G.000","KeyFeature":"G.000.002","name":"біль тільки над талією"}
+{"id":33,"keyComplaint":"G.000","KeyFeature":"G.000.001","name":"біль між нижнім краєм грудної клітки та пахом"}
+{"id":34,"keyComplaint":"E.000","KeyFeature":"E.000.001","name":"Висипання локалізація"}
+{"id":35,"keyComplaint":"D.000","KeyFeature":"D.000.008","name":"тривалість проблеми із бронхами"}
+{"id":36,"keyComplaint":"D.000","KeyFeature":"D.000.007","name":"поліпшення проблеми із бронхами"}
+{"id":37,"keyComplaint":"D.000","KeyFeature":"D.000.006","name":"погіршення проблеми із бронхами"}
+{"id":38,"keyComplaint":"D.000","KeyFeature":"D.000.005","name":"температура"}
+{"id":39,"keyComplaint":"D.000","KeyFeature":"D.000.004","name":"біль за грудиною"}
+{"id":40,"keyComplaint":"D.000","KeyFeature":"D.000.003","name":"мокрота"}
+{"id":41,"keyComplaint":"D.000","KeyFeature":"D.000.002","name":"труднощі з диханням"}
+{"id":42,"keyComplaint":"D.000","KeyFeature":"D.000.001","name":"кашель"}
+{"id":43,"keyComplaint":"C.000","KeyFeature":"C.000.005","name":"погіршення проблеми з очима"}
+{"id":44,"keyComplaint":"C.000","KeyFeature":"C.000.004","name":"порушення зору"}
+{"id":45,"keyComplaint":"C.000","KeyFeature":"C.000.003","name":"почервоніння слизової очей"}
+{"id":46,"keyComplaint":"C.000","KeyFeature":"C.000.002","name":"виділення з очей "}
+{"id":47,"keyComplaint":"B.000","KeyFeature":"B.000.013","name":"інші скарги"}
+{"id":48,"keyComplaint":"A.000","KeyFeature":"A.000.013","name":"інші скарги"}
+{"id":49,"keyComplaint":"A.002","KeyFeature":"A.002.001","name":"Розлитий головний біль"}
+{"id":50,"keyComplaint":"A.001","KeyFeature":"A.001.001","name":"З втратою свідомості"}
+{"id":51,"keyComplaint":"A.001","KeyFeature":"A.001.002","name":"Без втрати свідомості"}

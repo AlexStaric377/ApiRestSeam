@@ -1,0 +1,3 @@
+{"id":1,"idStatus":"1","statusUser":"on","nameStatus":"Адміністратор","kodDostupa":"RWED"}
+{"id":2,"idStatus":"3","statusUser":"on","nameStatus":"Лікар","kodDostupa":"RWE"}
+{"id":3,"idStatus":"2","statusUser":"on","nameStatus":"Паціент","kodDostupa":"RWE"}
