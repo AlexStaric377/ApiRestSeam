@@ -403,6 +403,7 @@ namespace AppRestSeam.Models
         public string UriwebZaklad { get; set; }
         public string KodObl { get; set; }
         public string IdStatus { get; set; }
+        public string KodZaklad { get; set; }
 
     }
     // справочник груп диагнозов которые обслуживает мед учреждение
@@ -412,6 +413,7 @@ namespace AppRestSeam.Models
         public string Edrpou { get; set; }
         public string IcdGrDiagnoz { get; set; } // код группы МКХ в которую входит диагноз
         public string IcdKey { get; set; } // код группы МКХ в которую входит диагноз
+        public string KodZaklad { get; set; }
     }
 
     // Язык интерфейса
