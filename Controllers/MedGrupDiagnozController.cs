@@ -37,11 +37,11 @@ namespace AppRestSeam.Controllers
         }
 
         // GET api/<MedGrupDiagnozController>/5
-        [HttpGet("{Edrpou}/{IcdGrDiagnoz}/{IcdKey}")]
-        public async Task<ActionResult<MedicalGrDiagnoz>> Get(string Edrpou, string IcdGrDiagnoz, string IcdKey)
+        [HttpGet("{Edrpou}/{IcdGrDiagnoz}/{IcdKey}/{KodZaklad}")]
+        public async Task<ActionResult<MedicalGrDiagnoz>> Get(string Edrpou, string IcdGrDiagnoz, string IcdKey, string KodZaklad)
         {
             List<MedicalGrDiagnoz> _listdiagnoz = new List<MedicalGrDiagnoz>();
-            if (Edrpou.Trim() == "0" && IcdGrDiagnoz.Trim() == "0" && IcdKey.Trim() == "0") { return NotFound(); }
+            if (Edrpou.Trim() == "0" && IcdGrDiagnoz.Trim() == "0" && IcdKey.Trim() == "0" && KodZaklad.Trim() == "0") { return NotFound(); }
 
             if (Edrpou.Trim() != "0")
             { 
@@ -54,6 +54,10 @@ namespace AppRestSeam.Controllers
             if (IcdKey.Trim() != "0")
             {
                 _listdiagnoz = await db.MedicalGrDiagnozs.Where(x => x.IcdKey.Contains(IcdKey) == true).OrderBy(x => x.Edrpou).ToListAsync();
+            }
+            if (KodZaklad.Trim() != "0")
+            {
+                _listdiagnoz = await db.MedicalGrDiagnozs.Where(x => x.KodZaklad == KodZaklad).ToListAsync();
             }
             return Ok(_listdiagnoz);
  
