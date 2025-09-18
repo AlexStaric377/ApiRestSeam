@@ -37,19 +37,22 @@ namespace AppRestSeam.Controllers
 
         // GET api/<ApiControllerVisitingDays>/5
         [HttpGet("{KodDoctor}/{DataVisita}")]
-        public async Task<ActionResult<VisitingDays>> Get(string KodDoctor ="", string DataVisita ="")
+        public async Task<ActionResult<VisitingDays>> Get(string KodDoctor, string DataVisita )
         {
+            int daysToAdd = 21;
             List<VisitingDays> _Days = new List<VisitingDays>();
             if (KodDoctor != "0" && DataVisita == "0")
             {
-                _Days = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor).ToListAsync(); 
-                    
+                 //DateTime datebegin = DateTime.ParseExact(DataVisita, "dd.MM.yyyy", null);
+                _Days = await db.VisitingDayss.Where(x => x.DateWork >= DateTime.Now && x.KodDoctor == KodDoctor).OrderBy(x => x.TimeVizita).ToListAsync();
             }
-            if (KodDoctor != "0" && DataVisita != "0")
+            else
             {
-                _Days = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateVizita.Contains(DataVisita) == true).ToListAsync();
                 
+                _Days = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateWork >= DateTime.Now && x.DateWork <= DateTime.Now.AddDays(daysToAdd)).OrderBy(x => x.DateWork).ToListAsync();
             }
+           
+            
             return Ok(_Days);
 
         }

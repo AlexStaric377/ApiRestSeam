@@ -385,7 +385,7 @@ namespace AppRestSeam.Models
         public string DateVizita { get; set; }
         public string TimeVizita { get; set; }
         public string OnOff { get; set; }
-
+        public DateTime DateWork { get; set; }
     }
 
     // Медицинское учреждение содержит смылку на таблицу докторов работающих в данном учрежлении
