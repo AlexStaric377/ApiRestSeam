@@ -42,17 +42,18 @@ namespace AppRestSeam.Controllers
         [HttpGet("{KodDoctor}/{DateVizita}")]
         public async Task<ActionResult<VisitingDays>> Get(string KodDoctor, string DateVizita )
         {
+            int daysToAdd = 21;
             List<VisitingDays> _detailing = new List<VisitingDays>();
             if (KodDoctor.Trim() == "0") { return NotFound(); }
             if (DateVizita.Trim() != "0")
             {
-                DateTime datebegin = DateTime.ParseExact(DateVizita, "dd.MM.yyyy", null);
-                _detailing = await db.VisitingDayss.Where(x => x.DateWork == datebegin && x.KodDoctor == KodDoctor).OrderBy(x => x.TimeVizita).ToListAsync();
+                //DateTime datebegin = DateTime.ParseExact(DateVizita, "dd.MM.yyyy", null);
+                _detailing = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateWork == Convert.ToDateTime(DateVizita)).OrderBy(x => x.DateWork).ToListAsync(); //x.DateWork == datebegin && 
             }
             else
             {
-                int daysToAdd = 15;
-                _detailing = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateWork >= DateTime.Now.AddDays(daysToAdd)).OrderBy(x => x.DateWork).ToListAsync();
+                
+                _detailing = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateWork >= DateTime.Now && x.DateWork <= DateTime.Now.AddDays(daysToAdd)).OrderBy(x => x.DateWork).ToListAsync();
             }
             return Ok(_detailing);
 

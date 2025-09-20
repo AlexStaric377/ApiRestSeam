@@ -43,8 +43,9 @@ namespace AppRestSeam.Controllers
             List<VisitingDays> _Days = new List<VisitingDays>();
             if (KodDoctor != "0" && DataVisita == "0")
             {
-                 //DateTime datebegin = DateTime.ParseExact(DataVisita, "dd.MM.yyyy", null);
-                _Days = await db.VisitingDayss.Where(x => x.DateWork >= DateTime.Now && x.KodDoctor == KodDoctor).OrderBy(x => x.TimeVizita).ToListAsync();
+                //DateTime datebegin = DateTime.ParseExact(DateWork, "dd.MM.yyyy", null);
+
+                _Days = await db.VisitingDayss.Where(x => x.DateWork >= DateTime.Now && x.KodDoctor == KodDoctor).OrderBy(x => x.TimeVizita).ToListAsync();  // 
             }
             else
             {
