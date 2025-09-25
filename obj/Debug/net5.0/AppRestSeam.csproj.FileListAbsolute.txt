@@ -22,14 +22,6 @@ D:\ApiRestSeam\bin\Debug\net5.0\dbseam\Pacient.json
 D:\ApiRestSeam\bin\Debug\net5.0\dbseam\Qualification.json
 D:\ApiRestSeam\bin\Debug\net5.0\dbseam\Recommendation.json
 D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.exe
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.deps.json
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.runtimeconfig.json
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.runtimeconfig.dev.json
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.dll
-D:\ApiRestSeam\bin\Debug\net5.0\ref\AppRestSeam.dll
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.pdb
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.Views.dll
-D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.Views.pdb
 D:\ApiRestSeam\bin\Debug\net5.0\Humanizer.dll
 D:\ApiRestSeam\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\ApiRestSeam\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
@@ -94,4 +86,12 @@ D:\ApiRestSeam\obj\Debug\net5.0\AppRestSeam.csproj.CopyComplete
 D:\ApiRestSeam\obj\Debug\net5.0\AppRestSeam.dll
 D:\ApiRestSeam\obj\Debug\net5.0\ref\AppRestSeam.dll
 D:\ApiRestSeam\obj\Debug\net5.0\AppRestSeam.pdb
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.deps.json
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.runtimeconfig.json
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.runtimeconfig.dev.json
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.dll
+D:\ApiRestSeam\bin\Debug\net5.0\ref\AppRestSeam.dll
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.pdb
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.Views.dll
+D:\ApiRestSeam\bin\Debug\net5.0\AppRestSeam.Views.pdb
 D:\ApiRestSeam\obj\Debug\net5.0\AppRestSeam.genruntimeconfig.cache
