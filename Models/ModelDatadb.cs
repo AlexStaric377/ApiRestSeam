@@ -335,6 +335,7 @@ namespace AppRestSeam.Models
         public string Specialnoct { get; set; }
         public string Napryamok { get; set; }
         public string UriwebDoctor { get; set; }
+        public string Resume { get; set; }
 
     }
 
