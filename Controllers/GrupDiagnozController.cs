@@ -42,15 +42,19 @@ namespace AppRestSeam.Controllers
         [HttpGet("{IcdGrDiagnoz}/{PoiskGrDiagnoz}")]
         public async Task<ActionResult<GrupDiagnoz>> Get(string IcdGrDiagnoz, string PoiskGrDiagnoz)
         {
-
+            List<GrupDiagnoz> _listGrupDiagnoz = new List<GrupDiagnoz>();
             if (IcdGrDiagnoz.Trim() == "0" && PoiskGrDiagnoz.Trim() == "0") { return NotFound(); }
-            if (IcdGrDiagnoz.Trim() == "0")
+            if (PoiskGrDiagnoz.Trim() != "0")
             {
-                List<GrupDiagnoz> _listGrupDiagnoz = await db.GrupDiagnozs.Where(x => x.NameGrDiagnoz.Contains(PoiskGrDiagnoz)).ToListAsync();
-                return Ok(_listGrupDiagnoz);
+                _listGrupDiagnoz = await db.GrupDiagnozs.Where(x => x.NameGrDiagnoz.Contains(PoiskGrDiagnoz)).ToListAsync();
+                
             }
-            GrupDiagnoz _detailing = await db.GrupDiagnozs.FirstOrDefaultAsync(x => x.IcdGrDiagnoz == IcdGrDiagnoz);
-            return Ok(_detailing);
+            if (IcdGrDiagnoz.Trim() != "0")
+            {
+                _listGrupDiagnoz = await db.GrupDiagnozs.Where(x => x.IcdGrDiagnoz.Contains(IcdGrDiagnoz)).ToListAsync();
+
+            }
+            return Ok(_listGrupDiagnoz);
 
         }
 
