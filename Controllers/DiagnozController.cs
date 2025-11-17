@@ -52,7 +52,7 @@ namespace AppRestSeam.Controllers
             }
             if (IcdGrDiagnoz.Trim() != "0")
             {
-                _listdiagnoz = await db.Diagnozs.Where(x => x.KeyIcd.Contains(IcdGrDiagnoz)).OrderBy(x => x.KodDiagnoza).ToListAsync();
+                _listdiagnoz = await db.Diagnozs.Where(x => x.IcdGrDiagnoz.Contains(IcdGrDiagnoz)).OrderBy(x => x.KodDiagnoza).ToListAsync();
             }
             return Ok(_listdiagnoz);
         }

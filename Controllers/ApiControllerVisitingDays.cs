@@ -49,7 +49,7 @@ namespace AppRestSeam.Controllers
             {
                 //DateTime datebegin = DateTime.ParseExact(DateWork, "dd.MM.yyyy", null);
 
-                _Days = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateWork >= begindateTime && x.DateWork <= enddateTime).OrderBy(x => x.TimeVizita).ToListAsync();  // 
+                _Days = await db.VisitingDayss.Where(x => x.KodDoctor == KodDoctor && x.DateWork >= begindateTime && x.DateWork <= enddateTime).OrderBy(x => x.DateWork).ToListAsync();  // 
             }
             if (KodDoctor != "0" && DataVisita != "0")
             {
