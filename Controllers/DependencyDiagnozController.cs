@@ -39,23 +39,29 @@ namespace AppRestSeam.Controllers
         [HttpGet("{KodDiagnoz}/{KodProtokola}/{PoiskDiagnoz}")]
         public async Task<ActionResult<DependencyDiagnoz>> Get(string KodDiagnoz, string KodProtokola, string PoiskDiagnoz)
         {
-
+            List<DependencyDiagnoz> listDependency = new List<DependencyDiagnoz>();
             if (KodDiagnoz.Trim() == "0" && KodProtokola.Trim() == "0" && PoiskDiagnoz.Trim() == "0") { return NotFound(); }
 
             if (PoiskDiagnoz.Trim() != "0")
             {
-                List<DependencyDiagnoz> listDependency = new List<DependencyDiagnoz>();
+               
                 List<Diagnoz> _listDiagnoz = await db.Diagnozs.Where(x => x.NameDiagnoza.Contains(PoiskDiagnoz)).ToListAsync();
                 foreach (Diagnoz diagnoz in _listDiagnoz)
                 {
                     DependencyDiagnoz _koddiagnoz = await db.DependencyDiagnozs.FirstOrDefaultAsync(x => x.KodDiagnoz == diagnoz.KodDiagnoza);
                     listDependency.Add(_koddiagnoz);
                 }
-                return Ok(listDependency);
             }
-            DependencyDiagnoz _detailing = (KodDiagnoz.Trim() == "0" && PoiskDiagnoz.Trim() == "0") ? await db.DependencyDiagnozs.FirstOrDefaultAsync(x => x.KodProtokola == KodProtokola) :
-                await db.DependencyDiagnozs.FirstOrDefaultAsync(x => x.KodDiagnoz == KodDiagnoz);
-            return Ok(_detailing);
+            if (KodProtokola.Trim() != "0")
+            {
+                listDependency = await db.DependencyDiagnozs.Where(x => x.KodProtokola == KodProtokola).ToListAsync();
+            }
+            if (KodDiagnoz.Trim() != "0")
+            {
+                listDependency = await db.DependencyDiagnozs.Where(x => x.KodDiagnoz == KodDiagnoz).ToListAsync(); ;
+            }
+
+            return Ok(listDependency);
         }
 
         // POST api/<DependencyDiagnozController>
