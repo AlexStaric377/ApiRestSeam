@@ -38,10 +38,10 @@ namespace AppRestSeam.Controllers
 
 
         // GET api/<ControllerAdmissionPatients>/5
-        [HttpGet("{KodPacient}/{KodDoctor}/{KodComplInterv}/{DateVizita}")]
-        public async Task<ActionResult<AdmissionPatients>> Get(string KodPacient, string KodDoctor, string KodComplInterv, string DateVizita)
+        [HttpGet("{KodPacient}/{KodDoctor}/{KodComplInterv}/{DateVizita}/{DateInterview}/{KodProtokola}")]
+        public async Task<ActionResult<AdmissionPatients>> Get(string KodPacient, string KodDoctor, string KodComplInterv, string DateVizita, string DateInterview, string KodProtokola)
         {
-            if (KodPacient.Trim() == "0" && DateVizita.Trim() == "0" && KodDoctor.Trim() == "0" && KodComplInterv.Trim() == "0") { return NotFound(); }
+            if (KodPacient.Trim() == "0" && DateVizita.Trim() == "0" && KodDoctor.Trim() == "0" && KodComplInterv.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0") { return NotFound(); }
             List<AdmissionPatients> _detailing = new List <AdmissionPatients>();
             if (KodPacient.Trim() == "0")
             {
@@ -56,21 +56,26 @@ namespace AppRestSeam.Controllers
                 }
 
             }
-            else
+            if (KodPacient.Trim() != "0")
             {
-                if (KodDoctor.Trim() == "0" && KodComplInterv.Trim() == "0")
+                if (KodDoctor.Trim() == "0" && KodComplInterv.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
                 { 
                     _detailing = await db.AdmissionPatientss.Where(x => x.KodPacient == KodPacient ).OrderBy(x => x.DateVizita).ToListAsync();
                 }
-                if (KodDoctor.Trim() != "0" && KodComplInterv.Trim() == "0")
+                if (KodDoctor.Trim() != "0" && KodComplInterv.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
                 {
                     _detailing = await db.AdmissionPatientss.Where(x => x.KodDoctor== KodDoctor && x.KodPacient == KodPacient  ).OrderBy(x => x.KodPacient).ToListAsync();
                 }
-                if (KodDoctor.Trim() != "0" && KodComplInterv.Trim() != "0")
+                if (KodDoctor.Trim() != "0" && KodComplInterv.Trim() != "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
                 {
                     _detailing = await db.AdmissionPatientss.Where(x =>x.KodDoctor == KodDoctor &&  x.KodPacient == KodPacient &&  x.KodComplInterv == KodComplInterv).OrderBy(x => x.DateVizita).ToListAsync();
                 }
+                if (KodPacient.Trim() != "0" && KodDoctor.Trim() != "0" && DateInterview.Trim() != "0" && KodProtokola.Trim() != "0")
+                {
+                    _detailing = await db.AdmissionPatientss.Where(x => x.KodPacient == KodPacient && x.KodDoctor == KodDoctor && x.DateInterview == DateInterview && x.KodProtokola == KodProtokola).ToListAsync();
+                }
             }
+      
             return Ok(_detailing);
 
         }

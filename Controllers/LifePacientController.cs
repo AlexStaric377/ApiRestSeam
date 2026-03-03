@@ -37,18 +37,24 @@ namespace AppRestSeam.Controllers
         }
 
         // GET api/<LifePacientController>/5
-        [HttpGet("{KodPacient}/{ KodDoctor}")]
-        public async Task<ActionResult<LifePacient>> Get(string KodPacient, string KodDoctor)
+        [HttpGet("{KodPacient}/{KodDoctor}/{DateInterview}/{KodProtokola}")]
+        public async Task<ActionResult<LifePacient>> Get(string KodPacient, string KodDoctor, string DateInterview, string KodProtokola)
         {
-            LifePacient _detailing = new LifePacient();
-            if (KodPacient.Trim() == "0")
+            List<LifePacient> _detailing = new List<LifePacient>();
+            if (KodDoctor.Trim() == "0" && KodPacient.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0") { return NotFound(); }
+            if (KodDoctor.Trim() != "0" && KodPacient.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
             {
-                if (KodDoctor.Trim() == "0") { return NotFound(); }
-                _detailing = await db.LifePacients.FirstOrDefaultAsync(x => x.KodDoctor == KodDoctor);
+                _detailing = await db.LifePacients.Where(x => x.KodDoctor == KodDoctor).ToListAsync();
             }
-            else
+
+            if (KodPacient.Trim() != "0" && KodDoctor.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
             {
-                _detailing = await db.LifePacients.FirstOrDefaultAsync(x => x.KodPacient == KodPacient);
+                _detailing = await db.LifePacients.Where(x => x.KodPacient == KodPacient).ToListAsync();
+            }
+
+            if (KodPacient.Trim() != "0" && KodDoctor.Trim() != "0" && DateInterview.Trim() != "0" && KodProtokola.Trim() != "0")
+            {
+                _detailing = await db.LifePacients.Where(x => x.KodPacient == KodPacient && x.KodDoctor == KodDoctor && x.DateInterview == DateInterview && x.KodProtokola == KodProtokola).ToListAsync();
             }
             return Ok(_detailing);
 
