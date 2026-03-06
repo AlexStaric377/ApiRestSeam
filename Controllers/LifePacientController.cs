@@ -99,8 +99,8 @@ namespace AppRestSeam.Controllers
         }
 
         // DELETE api/<LifePacientController>/5
-        [HttpDelete("{id}/{KodPacienta}/{KodDoctora}")]
-        public async Task<ActionResult<LifePacient>> Delete(string id, string KodPacienta, string KodDoctora)
+        [HttpDelete("{id}/{KodPacienta}/{KodDoctora}/{DateInterview}/{KodProtokola}")]
+        public async Task<ActionResult<LifePacient>> Delete(string id, string KodPacienta, string KodDoctora, string DateInterview, string KodProtokola)
         {
             if (KodPacienta.Trim() == "0" && id == "0") { return NotFound(); }
             LifePacient _detailing = new LifePacient();
@@ -137,7 +137,7 @@ namespace AppRestSeam.Controllers
 
                     }
                 }
-                if (KodPacienta.Trim() != "0")
+                if (KodPacienta.Trim() != "0" && KodDoctora.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
                 {
 
                     _detailing = await db.LifePacients.FirstOrDefaultAsync(x => x.KodPacient == KodPacienta);
@@ -146,12 +146,19 @@ namespace AppRestSeam.Controllers
                         db.LifePacients.RemoveRange(db.LifePacients.Where(x => x.KodPacient == KodPacienta));
                         await db.SaveChangesAsync();
                     }
-                    if (KodDoctora.Trim() != "0")
-                    {
-                        _detailing = await db.LifePacients.FirstOrDefaultAsync(x => x.KodDoctor == KodDoctora);
-                        if (_detailing != null) db.LifePacients.RemoveRange(db.LifePacients.Where(x => x.KodDoctor == KodDoctora));
-                    }
                 }
+                if (KodDoctora.Trim() != "0" && KodPacienta.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
+                {
+                    _detailing = await db.LifePacients.FirstOrDefaultAsync(x => x.KodDoctor == KodDoctora);
+                    if (_detailing != null) db.LifePacients.RemoveRange(db.LifePacients.Where(x => x.KodDoctor == KodDoctora));
+                }
+                
+                if (KodPacienta.Trim() != "0" && KodDoctora.Trim() != "0" && DateInterview.Trim() != "0" && KodProtokola.Trim() != "0")
+                {
+                    _detailing = await db.LifePacients.FirstOrDefaultAsync(x => x.KodPacient == KodPacienta && x.KodDoctor == KodDoctora && x.DateInterview == DateInterview && x.KodProtokola == KodProtokola);
+                    if (_detailing != null) db.LifePacients.RemoveRange(db.LifePacients.Where(x => x.KodPacient == KodPacienta && x.KodDoctor == KodDoctora && x.DateInterview == DateInterview && x.KodProtokola == KodProtokola));
+                }
+
                 await db.SaveChangesAsync();
             }
             return Ok(_detailing);
