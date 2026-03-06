@@ -35,22 +35,31 @@ namespace AppRestSeam.Controllers
         }
 
         // GET api/<RegistrationAppointmentController>/5
-        [HttpGet("{KodPacient}/{KodDoctora}")]
-        public async Task<ActionResult<RegistrationAppointment>> Get(string KodPacient, string KodDoctora)
+        [HttpGet("{KodPacient}/{KodDoctora}/{DateInterview}/{KodProtokola}")]
+        public async Task<ActionResult<RegistrationAppointment>> Get(string KodPacient, string KodDoctora, string DateInterview, string KodProtokola)
         {
 
-            ////if (KodPacient.Trim() == "0" && KodDoctora.Trim() == "0") { return NotFound(); }
+            
 
 
             List<RegistrationAppointment> _content = new List<RegistrationAppointment>();
-            if (KodPacient.Trim() != "0" )
-            { 
-                _content =  await db.RegistrationAppointments.Where(x => x.KodPacient == KodPacient).ToListAsync(); 
-            }
-            if (KodDoctora.Trim() != "0")
+
+            if (KodDoctora.Trim() == "0" && KodPacient.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0") { return NotFound(); }
+            if (KodDoctora.Trim() != "0" && KodPacient.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
             {
                 _content = await db.RegistrationAppointments.Where(x => x.KodDoctor == KodDoctora).ToListAsync();
             }
+
+            if (KodPacient.Trim() != "0" && KodDoctora.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0")
+            {
+                _content = await db.RegistrationAppointments.Where(x => x.KodPacient == KodPacient).ToListAsync();
+            }
+
+            if (KodPacient.Trim() != "0" && KodDoctora.Trim() != "0" && DateInterview.Trim() != "0" && KodProtokola.Trim() != "0")
+            {
+                _content = await db.RegistrationAppointments.Where(x => x.KodPacient == KodPacient && x.KodDoctor == KodDoctora && x.DateInterview == DateInterview && x.KodProtokola == KodProtokola).ToListAsync();
+            }
+
 
             return Ok(_content);
         }
