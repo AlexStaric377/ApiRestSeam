@@ -308,6 +308,19 @@ namespace AppRestSeam.Models
         public string KodProtokola { get; set; }
         public string TopictVizita { get; set; }
     }
+
+    // Жизнь пациента и взаимодействие с врачами
+    // 
+    public class FamilyLIkar
+    {
+        public int Id { get; set; }
+        public string KodPacient { get; set; }
+        public string KodDoctor { get; set; }
+        public DateTime Datestart { get; set; }
+        public DateTime Dateend { get; set; }
+        public int Numberrequests { get; set; }
+        public int Numberdiagnoz { get; set; }
+    }
     // Список пациентов записавшихся на прием средством СЕАМ
     public class RegistrationAppointment
     {
