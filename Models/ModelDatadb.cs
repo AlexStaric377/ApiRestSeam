@@ -311,7 +311,7 @@ namespace AppRestSeam.Models
 
     // Жизнь пациента и взаимодействие с врачами
     // 
-    public class FamilyLIkar
+    public class FamilyLikar
     {
         public int Id { get; set; }
         public string KodPacient { get; set; }

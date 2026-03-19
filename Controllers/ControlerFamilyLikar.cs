@@ -31,50 +31,50 @@ namespace AppRestSeam.Controllers
 
         // GET: api/<ControlerFamilyLikar>
         [HttpGet]
-        public async Task<ActionResult<FamilyLIkar>> Get()
+        public async Task<ActionResult<FamilyLikar>> Get()
         {
-            List<FamilyLIkar> _detailing = await db.FamilyLIkars.OrderBy(x => x.KodPacient).ToListAsync();
+            List<FamilyLikar> _detailing = await db.FamilyLikars.OrderBy(x => x.KodPacient).ToListAsync();
             return Ok(_detailing);
         }
 
         // GET api/<ControlerFamilyLikar>/5
         [HttpGet("{KodPacient}/{KodDoctor}")]
-        public async Task<ActionResult<FamilyLIkar>> Get(string KodPacient, string KodDoctor)
+        public async Task<ActionResult<FamilyLikar>> Get(string KodPacient, string KodDoctor)
         {
-            List<FamilyLIkar> _detailing = new List<FamilyLIkar>();
+            List<FamilyLikar> _detailing = new List<FamilyLikar>();
             
             if (KodDoctor.Trim() == "0" && KodPacient.Trim() == "0" ) { return NotFound(); }
             if (KodDoctor.Trim() != "0" && KodPacient.Trim() == "0" )
             {
-                _detailing = await db.FamilyLIkars.Where(x => x.KodDoctor == KodDoctor).ToListAsync();
+                _detailing = await db.FamilyLikars.Where(x => x.KodDoctor == KodDoctor).ToListAsync();
             }
 
             if (KodPacient.Trim() != "0" && KodDoctor.Trim() == "0" )
             {
-                _detailing = await db.FamilyLIkars.Where(x => x.KodPacient == KodPacient).ToListAsync();
+                _detailing = await db.FamilyLikars.Where(x => x.KodPacient == KodPacient).ToListAsync();
             }
 
             if (KodPacient.Trim() != "0" && KodDoctor.Trim() != "0" )
             {
-                _detailing = await db.FamilyLIkars.Where(x => x.KodPacient == KodPacient && x.KodDoctor == KodDoctor ).ToListAsync();
+                _detailing = await db.FamilyLikars.Where(x => x.KodPacient == KodPacient && x.KodDoctor == KodDoctor ).ToListAsync();
             }
             return Ok(_detailing);
         }
 
         // POST api/<ControlerFamilyLikar>
         [HttpPost]
-        public async Task<ActionResult<FamilyLIkar>> Post(FamilyLIkar _detailing)
+        public async Task<ActionResult<FamilyLikar>> Post(FamilyLikar _detailing)
         {
             if (_detailing == null) { return BadRequest(); }
             // Создание новой карты 
             try
             {
-                db.FamilyLIkars.Add(_detailing);
+                db.FamilyLikars.Add(_detailing);
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (db.FamilyLIkars.Any(x => x.Id != _detailing.Id)) { return NotFound(); }
+                if (db.FamilyLikars.Any(x => x.Id != _detailing.Id)) { return NotFound(); }
 
             }
 
@@ -83,17 +83,17 @@ namespace AppRestSeam.Controllers
 
         // PUT api/<ControlerFamilyLikar>/5
         [HttpPut]
-        public async Task<ActionResult<FamilyLIkar>> Put(FamilyLIkar _detailing)
+        public async Task<ActionResult<FamilyLikar>> Put(FamilyLikar _detailing)
         {
             if (_detailing == null) { return BadRequest(); }
             try
             {
-                db.FamilyLIkars.Update(_detailing);
+                db.FamilyLikars.Update(_detailing);
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (db.FamilyLIkars.Any(x => x.Id != _detailing.Id)) { return NotFound(); }
+                if (db.FamilyLikars.Any(x => x.Id != _detailing.Id)) { return NotFound(); }
             }
             return Ok(_detailing);
 
@@ -101,19 +101,19 @@ namespace AppRestSeam.Controllers
 
         // DELETE api/<ControlerFamilyLikar>/5
         [HttpDelete("{id}/{KodPacienta}/{KodDoctora}")]
-        public async Task<ActionResult<FamilyLIkar>> Delete(string id, string KodPacienta, string KodDoctora)
+        public async Task<ActionResult<FamilyLikar>> Delete(string id, string KodPacienta, string KodDoctora)
         {
             if (KodPacienta.Trim() == "0" && id == "0") { return NotFound(); }
-            FamilyLIkar _detailing = new FamilyLIkar();
+            FamilyLikar _detailing = new FamilyLikar();
             if (Convert.ToInt32(id) == -1)
             {
-                var _compl = await db.FamilyLIkars.ToListAsync();
-                foreach (FamilyLIkar str in _compl)
+                var _compl = await db.FamilyLikars.ToListAsync();
+                foreach (FamilyLikar str in _compl)
                 {
-                    _detailing = await db.FamilyLIkars.FirstOrDefaultAsync(x => x.Id == str.Id);
+                    _detailing = await db.FamilyLikars.FirstOrDefaultAsync(x => x.Id == str.Id);
                     if (_detailing != null)
                     {
-                        db.FamilyLIkars.Remove(_detailing);
+                        db.FamilyLikars.Remove(_detailing);
                         await db.SaveChangesAsync();
                     }
 
@@ -125,39 +125,39 @@ namespace AppRestSeam.Controllers
             {
                 if (Convert.ToInt32(id) > 0)
                 {
-                    _detailing = await db.FamilyLIkars.FirstOrDefaultAsync(x => x.Id == Convert.ToInt32(id));
+                    _detailing = await db.FamilyLikars.FirstOrDefaultAsync(x => x.Id == Convert.ToInt32(id));
                     if (_detailing == null) { return NotFound(); }
                     try
                     {
-                        db.FamilyLIkars.Remove(_detailing);
+                        db.FamilyLikars.Remove(_detailing);
 
                     }
                     catch (DbUpdateConcurrencyException)
                     {
-                        if (db.FamilyLIkars.Any(x => x.Id == _detailing.Id)) { return BadRequest(); }
+                        if (db.FamilyLikars.Any(x => x.Id == _detailing.Id)) { return BadRequest(); }
 
                     }
                 }
                 if (KodPacienta.Trim() != "0" && KodDoctora.Trim() == "0" )
                 {
 
-                    _detailing = await db.FamilyLIkars.FirstOrDefaultAsync(x => x.KodPacient == KodPacienta);
+                    _detailing = await db.FamilyLikars.FirstOrDefaultAsync(x => x.KodPacient == KodPacienta);
                     if (_detailing != null)
                     {
-                        db.FamilyLIkars.RemoveRange(db.FamilyLIkars.Where(x => x.KodPacient == KodPacienta));
+                        db.FamilyLikars.RemoveRange(db.FamilyLikars.Where(x => x.KodPacient == KodPacienta));
                         await db.SaveChangesAsync();
                     }
                 }
                 if (KodDoctora.Trim() != "0" && KodPacienta.Trim() == "0" )
                 {
-                    _detailing = await db.FamilyLIkars.FirstOrDefaultAsync(x => x.KodDoctor == KodDoctora);
-                    if (_detailing != null) db.FamilyLIkars.RemoveRange(db.FamilyLIkars.Where(x => x.KodDoctor == KodDoctora));
+                    _detailing = await db.FamilyLikars.FirstOrDefaultAsync(x => x.KodDoctor == KodDoctora);
+                    if (_detailing != null) db.FamilyLikars.RemoveRange(db.FamilyLikars.Where(x => x.KodDoctor == KodDoctora));
                 }
 
                 if (KodPacienta.Trim() != "0" && KodDoctora.Trim() != "0" )
                 {
-                    _detailing = await db.FamilyLIkars.FirstOrDefaultAsync(x => x.KodPacient == KodPacienta && x.KodDoctor == KodDoctora );
-                    if (_detailing != null) db.FamilyLIkars.RemoveRange(db.FamilyLIkars.Where(x => x.KodPacient == KodPacienta && x.KodDoctor == KodDoctora ));
+                    _detailing = await db.FamilyLikars.FirstOrDefaultAsync(x => x.KodPacient == KodPacienta && x.KodDoctor == KodDoctora );
+                    if (_detailing != null) db.FamilyLikars.RemoveRange(db.FamilyLikars.Where(x => x.KodPacient == KodPacienta && x.KodDoctor == KodDoctora ));
                 }
 
                 await db.SaveChangesAsync();

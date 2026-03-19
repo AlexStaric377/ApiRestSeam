@@ -28,7 +28,7 @@ namespace AppRestSeam.Models
         public DbSet<ContentInterv> ContentIntervs { get; set; }
         public DbSet<Icd> Icds { get; set; }
         public DbSet<Pacient> Pacients { get; set; }
-        public DbSet<FamilyLIkar> FamilyLIkars { get; set; }
+        public DbSet<FamilyLikar> FamilyLikars { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<DoctorGrDiagnoz> DoctorGrDiagnozs { get; set; }
 
