@@ -102,7 +102,7 @@ namespace AppRestSeam.Controllers
         [HttpDelete("{id}/{KodPacienta}/{KodDoctora}/{DateInterview}/{KodProtokola}")]
         public async Task<ActionResult<LifePacient>> Delete(string id, string KodPacienta, string KodDoctora, string DateInterview, string KodProtokola)
         {
-            if (KodPacienta.Trim() == "0" && id == "0") { return NotFound(); }
+            if (KodPacienta.Trim() == "0" && id == "0" && KodDoctora.Trim() == "0" && DateInterview.Trim() == "0" && KodProtokola.Trim() == "0") { return NotFound(); }
             LifePacient _detailing = new LifePacient();
             if (Convert.ToInt32(id) == -1)
             {

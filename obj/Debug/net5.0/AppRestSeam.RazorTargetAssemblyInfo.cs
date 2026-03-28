@@ -16,10 +16,10 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppRestSeam")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppRestSeam")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.45")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.47")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppRestSeam.Views")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.45")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.47")]
 
 // Создано классом WriteCodeFragment MSBuild.
 

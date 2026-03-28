@@ -48,11 +48,26 @@ namespace AppRestSeam.Controllers
             }
             if (Edrpou != "0") 
             {
-                List<Doctor> _listdoctor = await db.Doctors.Where(x => x.Edrpou == Edrpou).OrderBy(x => x.KodDoctor).ToListAsync();
-                return Ok(_listdoctor);
+                if (Edrpou == "2" )
+                {
+                    List<Doctor> _listdoctor = await db.Doctors.Where(x => x.Napryamok == "").OrderBy(x => x.KodDoctor).ToListAsync();
+                    return Ok(_listdoctor);
+                }
+                if (Edrpou == "5" )
+                {
+                    List<Doctor> _listdoctor = await db.Doctors.Where(x => x.Napryamok != "").OrderBy(x => x.KodDoctor).ToListAsync();
+                    return Ok(_listdoctor);
+                }
+                if (Edrpou != "5" && Edrpou != "2")
+                { 
+                    List<Doctor> _listdoctor = await db.Doctors.Where(x => x.Edrpou == Edrpou).OrderBy(x => x.KodDoctor).ToListAsync();
+                    return Ok(_listdoctor);               
+                }
+ 
             }
+
             Doctor _doctor = new Doctor();
-            if (KodDoctor != "0")
+            if (KodDoctor != "0" )
             {
                 _doctor = await db.Doctors.FirstOrDefaultAsync(x => x.KodDoctor == KodDoctor);
             }

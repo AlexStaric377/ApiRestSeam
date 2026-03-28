@@ -6,8 +6,8 @@
     <DockerfileContext>.</DockerfileContext>
     <Platforms>AnyCPU;x86</Platforms>
     <ApplicationIcon>server.ico</ApplicationIcon>
-    <AssemblyVersion>1.1.0.45</AssemblyVersion>
-    <FileVersion>1.1.0.45</FileVersion>
+    <AssemblyVersion>1.1.0.47</AssemblyVersion>
+    <FileVersion>1.1.0.47</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
