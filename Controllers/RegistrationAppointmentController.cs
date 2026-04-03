@@ -105,7 +105,7 @@ namespace AppRestSeam.Controllers
         [HttpDelete("{id}/{KodPacienta}/{KodDoctora}/{DateInterview}/{KodProtokola}")]
         public async Task<ActionResult<RegistrationAppointment>> Delete(string id, string KodPacienta, string KodDoctora, string DateInterview, string KodProtokola)
         {
-            if (KodPacienta.Trim() == "0" && id == "0" && KodDoctora.Trim() == "0") { return NotFound(); }
+            if (KodPacienta.Trim() == "0" && id == "0" && KodDoctora.Trim() == "0" && DateInterview.Trim() == "0") { return NotFound(); }
             RegistrationAppointment _content = new RegistrationAppointment();
 
                 if (id != "0")
